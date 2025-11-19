@@ -29,6 +29,8 @@ make_symlink() {
     ln -sfn "$target" "$linkpath"
 }
 
+make_symlink "${PWD}/config/zsh/.zshrc" "$HOME/.zshrc"
+
 make_symlink "${PWD}/config/nvim" "${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
 
 make_symlink "${PWD}/config/tmux" "${XDG_CONFIG_HOME:-$HOME/.config}/tmux"
