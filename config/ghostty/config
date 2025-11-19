@@ -1,6 +1,8 @@
 # Author: Nathaniel Chappelle
 # Creation Date 11/18/25
 
-
+shell-integration = zsh
+mouse-hide-while-typing = true
+scrollback-limit = 1000000
 theme = Rose Pine
 background = #000000
