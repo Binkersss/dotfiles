@@ -17,6 +17,14 @@ fi
 
 echo "Make sure to install the packages in aur.packages separately!"
 
+REPO_URL="https://github.com/ohmyzsh/ohmyzsh.git"
+TARGET_DIR="${PWD}/config/oh-my-zsh"
+
+if [ ! -d "$TARGET_DIR" ] || [ -z "$(ls -A "$TARGET_DIR")" ]; then
+	echo "Installing oh-my-zsh since it isn't present..."
+	git clone "$REPO_URL" "$TARGET_DIR"
+fi
+
 make_symlink() {
     local target="$1"
     local linkpath="$2"
