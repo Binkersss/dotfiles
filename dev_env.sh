@@ -69,4 +69,5 @@ make_symlink "${PWD}/config/thefuck" "${XDG_CONFIG_HOME:-$HOME/.config}/thefuck"
 
 make_symlink "${PWD}/config/dolphin/dolphinrc" "${XDG_CONFIG_HOME:-$HOME/.config}/dolphinrc"
 
+make_symlink "${PWD}/config/systemd/user" "${XDG_CONFIG_HOME:-$HOME/.config}/systemd/user"
 hyprctl reload
