@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-git checkout main
 git pull 
 
 echo "Updating system..."
@@ -25,6 +24,21 @@ if [ ! -d "$TARGET_DIR" ] || [ -z "$(ls -A "$TARGET_DIR")" ]; then
 	git clone "$REPO_URL" "$TARGET_DIR"
 fi
 
+REPO_URL="https://github.com/zsh-users/zsh-autosuggestions.git"
+TARGET_DIR="${PWD}/config/oh-my-zsh/custom/plugins/zsh-autosuggestions"
+
+if [ ! -d "$TARGET_DIR" ] || [ -z "$(ls -A "$TARGET_DIR")" ]; then
+	echo "Installing zsh-autosuggestions since it isn't present..."
+	git clone "$REPO_URL" "$TARGET_DIR"
+fi
+
+REPO_URL="https://github.com/zsh-users/zsh-syntax-highlighting.git"
+TARGET_DIR="${PWD}/config/oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+
+if [ ! -d "$TARGET_DIR" ] || [ -z "$(ls -A "$TARGET_DIR")" ]; then
+	echo "Installing zsh-syntax-highlighting since it isn't present..."
+	git clone "$REPO_URL" "$TARGET_DIR"
+fi
 make_symlink() {
     local target="$1"
     local linkpath="$2"
@@ -51,4 +65,8 @@ make_symlink "${PWD}/config/wofi" "${XDG_CONFIG_HOME:-$HOME/.config}/wofi"
 
 make_symlink "${PWD}/config/waybar" "${XDG_CONFIG_HOME:-$HOME/.config}/waybar"
 
+make_symlink "${PWD}/config/thefuck" "${XDG_CONFIG_HOME:-$HOME/.config}/thefuck"
+
 make_symlink "${PWD}/config/dolphin/dolphinrc" "${XDG_CONFIG_HOME:-$HOME/.config}/dolphinrc"
+
+hyprctl reload
