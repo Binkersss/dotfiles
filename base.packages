@@ -1,0 +1,11 @@
+# This file contains my default packages I need on any install
+
+git
+networkmanager
+gcc
+make 
+ripgrep
+fd 
+unzip
+neovim
+tmux
