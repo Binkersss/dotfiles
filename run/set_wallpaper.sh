@@ -2,7 +2,7 @@
 
 # Used by ./config/systemd/user/random-wallpaper.service
 
-WALLPAPER_DIR="${PWD}/config/wallpapers"
+WALLPAPER_DIR="$HOME/dev/env/config/wallpapers"
 
 if ! pgrep -x swww-daemon > /dev/null; then
 	swww-daemon &
@@ -10,6 +10,6 @@ if ! pgrep -x swww-daemon > /dev/null; then
 fi
 
 WALLPAPER="$(find "$WALLPAPER_DIR" -type f | shuf -n 1)"
-swww img $WALLPAPER
+swww img $WALLPAPER &
 
 export CURR_WALLPAPER=$WALLPAPER

@@ -1,5 +1,0 @@
-[Unit]
-Description=Random wallpaper changer
-
-[Service]
-ExecStart=%h/dev/env/run/set_wallpaper
